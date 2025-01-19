@@ -1,0 +1,30 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const locations = [
+    { name: "Paris", cost: 2000, image: "assets/paris.jpg" },
+    { name: "Bali", cost: 1500, image: "assets/bali.jpg" },
+    { name: "Goa", cost: 500, image: "assets/goa.jpg" },
+  ];
+
+  document.querySelector("#filter-btn").addEventListener("click", () => {
+    const budget = parseInt(document.querySelector("#budget").value);
+    const filtered = locations.filter((loc) => loc.cost <= budget);
+
+    const locationsDiv = document.querySelector("#locations");
+    locationsDiv.innerHTML = "";
+
+    filtered.forEach((loc) => {
+      const card = document.createElement("div");
+      card.className = "location-card";
+      card.innerHTML = `
+        <img src="${loc.image}" alt="${loc.name}" class="location-img">
+        <h3>${loc.name}</h3>
+        <p>Cost: $${loc.cost}</p>
+      `;
+      locationsDiv.appendChild(card);
+    });
+
+    if (filtered.length === 0) {
+      locationsDiv.innerHTML = "<p>No locations found within your budget.</p>";
+    }
+  });
+});
