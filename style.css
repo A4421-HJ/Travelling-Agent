@@ -1,3 +1,4 @@
+/* Reset default styles */
 * {
   margin: 0;
   padding: 0;
@@ -5,82 +6,177 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   background-color: #f4f4f4;
-  padding: 20px;
-}
-
-header {
-  text-align: center;
-  background-color: #007bff;
-  color: white;
-  padding: 40px;
-}
-
-header h1 {
-  font-size: 3em;
-}
-
-header p {
-  font-size: 1.2em;
-}
-
-.budget-filter {
-  margin-top: 20px;
-}
-
-.budget-filter input {
-  padding: 8px;
-  font-size: 1em;
-  width: 200px;
-}
-
-.locations {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.location {
-  background-color: #fff;
-  padding: 20px;
-  text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 2px solid #ddd;
-}
-
-.location-image {
-  width: 100%;
-  height: auto;
-  max-width: 250px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-h2 {
-  font-size: 1.5em;
+  line-height: 1.6;
   color: #333;
 }
 
-p {
-  color: #666;
+/* Global container for page content */
+.container {
+  width: 80%;
+  margin: auto;
 }
 
-.location[data-budget="500"],
-.location[data-budget="600"],
-.location[data-budget="700"],
-.location[data-budget="750"],
-.location[data-budget="800"] {
-  display: block;
+/* Header styling */
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
 }
 
-.location.hidden {
-  display: none;
+header a {
+  color: #f4f4f4;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+header a:hover {
+  color: #5cb85c;
+}
+
+/* Form styling */
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #5cb85c;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4cae4c;
+}
+
+/* Link styles for login/register page */
+a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #5cb85c;
+}
+
+/* Main Content */
+h1, h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Budget input and destinations list */
+input[type="number"] {
+  font-size: 18px;
+}
+
+ul#destination-list {
+  list-style: none;
+  padding: 0;
+}
+
+ul#destination-list li {
+  background-color: #fff;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+ul#destination-list li:hover {
+  background-color: #e7f3e7;
+}
+
+/* Grid layout for destinations */
+#destinations {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+#destinations .destination {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#destinations .destination img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+#destinations .destination h3 {
+  font-size: 20px;
+  color: #333;
+}
+
+#destinations .destination p {
+  color: #777;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  #destinations {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Adjusting form elements for mobile */
+  input[type="text"],
+  input[type="password"],
+  input[type="number"],
+  button {
+    font-size: 16px;
+  }
+
+  .container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Adjusting grid for mobile screens */
+  #destinations {
+    grid-template-columns: 1fr;
+  }
+
+  /* Making header more compact on mobile */
+  header {
+    padding: 10px;
+  }
+
+  /* Adjusting the form elements for better readability */
+  input[type="text"],
+  input[type="password"],
+  input[type="number"],
+  button {
+    font-size: 14px;
+  }
+
+  .container {
+    width: 95%;
+  }
 }
